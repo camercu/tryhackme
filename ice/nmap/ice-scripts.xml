@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.91 scan initiated Mon Dec 14 03:30:09 2020 as: nmap -sV -sC -v -oA nmap/ice-scripts -p8000,135,139,445,3389 -n 10.10.47.74 -->
+<nmaprun scanner="nmap" args="nmap -sV -sC -v -oA nmap/ice-scripts -p8000,135,139,445,3389 -n 10.10.47.74" start="1607916609" startstr="Mon Dec 14 03:30:09 2020" version="7.91" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="5" services="135,139,445,3389,8000"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1607916610"/>
+<taskend task="NSE" time="1607916610"/>
+<taskbegin task="NSE" time="1607916610"/>
+<taskend task="NSE" time="1607916610"/>
+<taskbegin task="NSE" time="1607916610"/>
+<taskend task="NSE" time="1607916610"/>
+<taskbegin task="Ping Scan" time="1607916610"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.10.47.74" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="Ping Scan" time="1607916610" extrainfo="1 total hosts"/>
+<taskbegin task="Connect Scan" time="1607916610"/>
+<taskend task="Connect Scan" time="1607916610" extrainfo="5 total ports"/>
+<taskbegin task="Service scan" time="1607916610"/>
+<taskend task="Service scan" time="1607916622" extrainfo="5 services on 1 host"/>
+<taskbegin task="NSE" time="1607916622"/>
+<taskend task="NSE" time="1607916627"/>
+<taskbegin task="NSE" time="1607916627"/>
+<taskend task="NSE" time="1607916628"/>
+<taskbegin task="NSE" time="1607916628"/>
+<taskend task="NSE" time="1607916628"/>
+<host starttime="1607916610" endtime="1607916628"><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.47.74" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="netbios-ssn" product="Microsoft Windows netbios-ssn" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="microsoft-ds" product="Windows 7 Professional 7601 Service Pack 1 microsoft-ds" extrainfo="workgroup: WORKGROUP" hostname="DARK-PC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ms-wbt-server" tunnel="ssl" method="table" conf="3"/><script id="ssl-cert" output="Subject: commonName=Dark-PC&#xa;Issuer: commonName=Dark-PC&#xa;Public Key type: rsa&#xa;Public Key bits: 2048&#xa;Signature Algorithm: sha1WithRSAEncryption&#xa;Not valid before: 2020-12-13T03:25:24&#xa;Not valid after:  2021-06-14T03:25:24&#xa;MD5:   c145 8bc3 0d9e 09ac f1da 49f3 23c2 70c6&#xa;SHA-1: fef1 f13c 29b4 bc21 4cab eb1a 0c25 a7d3 9186 7bd7"><table key="subject">
+<elem key="commonName">Dark-PC</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">Dark-PC</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">DAAF7FDB12EA4D94176A6AF1430BE3F40535A5FA9D5A9DEA6FD06A4507DF3A14E7C98B59AA870E12D1F46AE8A6AEDD6437D36F83E930F10471854201A3B34477B08225D151BFCE0061B0662A77D949745A2F3A7B47639208CEB5A0CA056DF71DA31BEFB4F65E13663822356D3A4694FFD058750A5509E309A92B20165B8319EF3E8CB439CC366F6DE8DBCDBC7A5A1070B83FC83234C4DF347FEC1F68F43C88DCCC89E0FC322BE7FF4305576E6995375167146190A08560ED4F46F000D173F134193ED72D7D2B163FEE05F35FA9FE943D4D2A82D0392028CB46B0805DB320048C94999CB7ECCAD0DDE24F333FACDA6DCAE991D8A28C6B1A292DAC88D268C2DCDB</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Key Encipherment, Data Encipherment</elem>
+</table>
+</table>
+<elem key="sig_algo">sha1WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2020-12-13T03:25:24</elem>
+<elem key="notAfter">2021-06-14T03:25:24</elem>
+</table>
+<elem key="md5">c1458bc30d9e09acf1da49f323c270c6</elem>
+<elem key="sha1">fef1f13c29b4bc214cabeb1a0c25a7d391867bd7</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC0jCCAbqgAwIBAgIQZYGHKLrCd7tAIGHct3RXITANBgkqhkiG9w0BAQUFADAS&#xa;MRAwDgYDVQQDEwdEYXJrLVBDMB4XDTIwMTIxMzAzMjUyNFoXDTIxMDYxNDAzMjUy&#xa;NFowEjEQMA4GA1UEAxMHRGFyay1QQzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC&#xa;AQoCggEBANqvf9sS6k2UF2pq8UML4/QFNaX6nVqd6m/QakUH3zoU58mLWaqHDhLR&#xa;9Gropq7dZDfTb4PpMPEEcYVCAaOzRHewgiXRUb/OAGGwZip32Ul0Wi86e0djkgjO&#xa;taDKBW33HaMb77T2XhNmOCI1bTpGlP/QWHUKVQnjCakrIBZbgxnvPoy0Ocw2b23o&#xa;2828eloQcLg/yDI0xN80f+wfaPQ8iNzMieD8Mivn/0MFV25plTdRZxRhkKCFYO1P&#xa;RvAA0XPxNBk+1y19KxY/7gXzX6n+lD1NKoLQOSAoy0awgF2zIASMlJmct+zK0N3i&#xa;TzM/rNptyumR2KKMaxopLayI0mjC3NsCAwEAAaMkMCIwEwYDVR0lBAwwCgYIKwYB&#xa;BQUHAwEwCwYDVR0PBAQDAgQwMA0GCSqGSIb3DQEBBQUAA4IBAQDY09Vl9MULUyVi&#xa;3XhypsyJKn69eYQgcPpSRiaTVoS9GBa5jN5FahvnvrE3Tm6O0FKFS9ezlIEBQdwI&#xa;kTCW8G2wzHNRE72K4GJW/r+C4jFjLrqA+5CH3jvwIyRuypuSsvvVJTli6yTEziLc&#xa;ovZFEj2D0Z+LnwxdM5pt38kiIbAJQOtQmYy1sxRVtAI34kJUezICggLuKFlodWaI&#xa;84nlioa9cDZ7WaDyqbXX2LJzJy70RcGw/JEx1FPJJxaF8rjmNHjGgCqPhBrmwQsm&#xa;Hr39zl/9ASW3dqjGUbjykzXKS4/DGaQmhGD/m1lDqw6BwHh+cp/5b0QYmVq4tsHf&#xa;G27uMdTO&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="2020-12-14T03:30:28+00:00; 0s from scanner time."><elem key="date">2020-12-14T03:30:28+00:00</elem>
+<elem key="delta">0.0</elem>
+</script></port>
+<port protocol="tcp" portid="8000"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Icecast streaming media server" method="probed" conf="10"><cpe>cpe:/a:xiph:icecast</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: GET"><table key="Supported Methods">
+<elem>GET</elem>
+</table>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/html)."></script></port>
+</ports>
+<hostscript><script id="clock-skew" output="mean: 1h30m00s, deviation: 3h00m00s, median: 0s"><elem key="median">0</elem>
+<elem key="count">4</elem>
+<elem key="stddev">10800</elem>
+<elem key="mean">5400</elem>
+</script><script id="nbstat" output="NetBIOS name: DARK-PC, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 02:13:0b:f6:ff:f5 (unknown)&#xa;Names:&#xa;  DARK-PC&lt;00&gt;          Flags: &lt;unique&gt;&lt;active&gt;&#xa;  WORKGROUP&lt;00&gt;        Flags: &lt;group&gt;&lt;active&gt;&#xa;  DARK-PC&lt;20&gt;          Flags: &lt;unique&gt;&lt;active&gt;&#xa;  WORKGROUP&lt;1e&gt;        Flags: &lt;group&gt;&lt;active&gt;&#xa;  WORKGROUP&lt;1d&gt;        Flags: &lt;unique&gt;&lt;active&gt;&#xa;  \x01\x02__MSBROWSE__\x02&lt;01&gt;  Flags: &lt;group&gt;&lt;active&gt;"/><script id="smb-os-discovery" output="&#xa;  OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)&#xa;  OS CPE: cpe:/o:microsoft:windows_7::sp1:professional&#xa;  Computer name: Dark-PC&#xa;  NetBIOS computer name: DARK-PC\x00&#xa;  Workgroup: WORKGROUP\x00&#xa;  System time: 2020-12-13T21:30:23-06:00&#xa;"><elem key="os">Windows 7 Professional 7601 Service Pack 1</elem>
+<elem key="lanmanager">Windows 7 Professional 6.1</elem>
+<elem key="server">DARK-PC\x00</elem>
+<elem key="date">2020-12-13T21:30:23-06:00</elem>
+<elem key="fqdn">Dark-PC</elem>
+<elem key="domain_dns">Dark-PC</elem>
+<elem key="workgroup">WORKGROUP\x00</elem>
+<elem key="cpe">cpe:/o:microsoft:windows_7::sp1:professional</elem>
+</script><script id="smb-security-mode" output="&#xa;  account_used: guest&#xa;  authentication_level: user&#xa;  challenge_response: supported&#xa;  message_signing: disabled (dangerous, but default)"><elem key="account_used">guest</elem>
+<elem key="authentication_level">user</elem>
+<elem key="challenge_response">supported</elem>
+<elem key="message_signing">disabled</elem>
+</script><script id="smb2-security-mode" output="&#xa;  2.02: &#xa;    Message signing enabled but not required"><table key="2.02">
+<elem>Message signing enabled but not required</elem>
+</table>
+</script><script id="smb2-time" output="&#xa;  date: 2020-12-14T03:30:23&#xa;  start_date: 2020-12-14T03:25:23"><elem key="date">2020-12-14T03:30:23</elem>
+<elem key="start_date">2020-12-14T03:25:23</elem>
+</script></hostscript><times srtt="84893" rttvar="22427" to="174601"/>
+</host>
+<taskbegin task="NSE" time="1607916628"/>
+<taskend task="NSE" time="1607916628"/>
+<taskbegin task="NSE" time="1607916628"/>
+<taskend task="NSE" time="1607916628"/>
+<taskbegin task="NSE" time="1607916628"/>
+<taskend task="NSE" time="1607916628"/>
+<runstats><finished time="1607916628" timestr="Mon Dec 14 03:30:28 2020" summary="Nmap done at Mon Dec 14 03:30:28 2020; 1 IP address (1 host up) scanned in 18.63 seconds" elapsed="18.63" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,14 @@
+# no executables
+*.exe
+*.dll
+*.msi
+*.so
+*.elf
+*.out
+
+# no archives
+*.zip
+*.gz
+
+# no vpn keys
+*.ovpn

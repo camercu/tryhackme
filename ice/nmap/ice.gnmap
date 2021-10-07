@@ -1,0 +1,5 @@
+# Nmap 7.91 scan initiated Mon Dec 14 03:25:36 2020 as: nmap -sS -p- -v -oA nmap/ice 10.10.47.74
+# Ports scanned: TCP(65535;1-65535) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.47.74 ()	Status: Up
+Host: 10.10.47.74 ()	Ports: 135/open/tcp//msrpc///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///, 3389/open/tcp//ms-wbt-server///, 5357/open/tcp//wsdapi///, 8000/open/tcp//http-alt///, 49152/open/tcp//unknown///, 49153/open/tcp//unknown///, 49154/open/tcp//unknown///, 49158/open/tcp//unknown///, 49159/open/tcp//unknown///, 49160/open/tcp//unknown///	Ignored State: closed (65523)
+# Nmap done at Mon Dec 14 03:28:28 2020 -- 1 IP address (1 host up) scanned in 172.67 seconds

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.91 scan initiated Wed Oct  6 17:20:12 2021 as: nmap -vvv -p 22,21,139,445 -n -Pn -sV -sC -oA nmap-tcp-all 10.10.0.233 -->
+<nmaprun scanner="nmap" args="nmap -vvv -p 22,21,139,445 -n -Pn -sV -sC -oA nmap-tcp-all 10.10.0.233" start="1633555212" startstr="Wed Oct  6 17:20:12 2021" version="7.91" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="4" services="21-22,139,445"/>
+<verbose level="3"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1633555212"/>
+<taskend task="NSE" time="1633555212"/>
+<taskbegin task="NSE" time="1633555212"/>
+<taskend task="NSE" time="1633555212"/>
+<taskbegin task="NSE" time="1633555212"/>
+<taskend task="NSE" time="1633555212"/>
+<taskbegin task="SYN Stealth Scan" time="1633555213"/>
+<taskend task="SYN Stealth Scan" time="1633555213" extrainfo="4 total ports"/>
+<taskbegin task="Service scan" time="1633555213"/>

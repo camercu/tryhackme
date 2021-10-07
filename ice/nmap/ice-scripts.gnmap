@@ -1,0 +1,5 @@
+# Nmap 7.91 scan initiated Mon Dec 14 03:30:09 2020 as: nmap -sV -sC -v -oA nmap/ice-scripts -p8000,135,139,445,3389 -n 10.10.47.74
+# Ports scanned: TCP(5;135,139,445,3389,8000) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.47.74 ()	Status: Up
+Host: 10.10.47.74 ()	Ports: 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds//Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)/, 3389/open/tcp//ssl|ms-wbt-server?///, 8000/open/tcp//http//Icecast streaming media server/
+# Nmap done at Mon Dec 14 03:30:28 2020 -- 1 IP address (1 host up) scanned in 18.63 seconds

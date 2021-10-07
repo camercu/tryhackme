@@ -1,0 +1,1 @@
+../../oscp/exam/110-bof/exploit/pwn-bof-template.py

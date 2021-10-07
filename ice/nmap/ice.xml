@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.91 scan initiated Mon Dec 14 03:25:36 2020 as: nmap -sS -p- -v -oA nmap/ice 10.10.47.74 -->
+<nmaprun scanner="nmap" args="nmap -sS -p- -v -oA nmap/ice 10.10.47.74" start="1607916336" startstr="Mon Dec 14 03:25:36 2020" version="7.91" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<taskbegin task="Ping Scan" time="1607916336"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="10.10.47.74" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskend task="Ping Scan" time="1607916336" extrainfo="1 total hosts"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1607916336"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1607916336"/>
+<taskbegin task="SYN Stealth Scan" time="1607916336"/>
+<taskprogress task="SYN Stealth Scan" time="1607916367" percent="11.90" remaining="230" etc="1607916597"/>
+<taskprogress task="SYN Stealth Scan" time="1607916397" percent="35.05" remaining="114" etc="1607916510"/>
+<taskprogress task="SYN Stealth Scan" time="1607916427" percent="52.40" remaining="83" etc="1607916510"/>
+<taskprogress task="SYN Stealth Scan" time="1607916457" percent="69.69" remaining="53" etc="1607916510"/>
+<taskend task="SYN Stealth Scan" time="1607916508" extrainfo="65535 total ports"/>
+<host starttime="1607916336" endtime="1607916508"><status state="up" reason="echo-reply" reason_ttl="125"/>
+<address addr="10.10.47.74" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65523">
+<extrareasons reason="resets" count="65523"/>
+</extraports>
+<port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="msrpc" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="ms-wbt-server" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5357"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="wsdapi" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8000"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="http-alt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49152"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49153"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49154"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49158"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49159"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49160"><state state="open" reason="syn-ack" reason_ttl="125"/><service name="unknown" method="table" conf="3"/></port>
+</ports>
+<times srtt="88364" rttvar="2381" to="100000"/>
+</host>
+<runstats><finished time="1607916508" timestr="Mon Dec 14 03:28:28 2020" summary="Nmap done at Mon Dec 14 03:28:28 2020; 1 IP address (1 host up) scanned in 172.67 seconds" elapsed="172.67" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
