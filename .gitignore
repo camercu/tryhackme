@@ -6,9 +6,13 @@
 *.elf
 *.out
 
+# binary files
+*.bin
+
 # no archives
 *.zip
 *.gz
 
 # no vpn keys
 *.ovpn
+
