@@ -1,0 +1,5 @@
+# Nmap 7.91 scan initiated Thu Oct  7 13:33:09 2021 as: nmap -vvv -p 21,22,80,111,139,445,2049,42593,46691,57987,60253 -n -Pn -sV -sC -oA nmap-tcp-all 10.10.54.157
+# Ports scanned: TCP(11;21-22,80,111,139,445,2049,42593,46691,57987,60253) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.10.54.157 ()	Status: Up
+Host: 10.10.54.157 ()	Ports: 21/open/tcp//ftp//ProFTPD 1.3.5/, 22/open/tcp//ssh//OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.18 ((Ubuntu))/, 111/open/tcp//rpcbind//2-4 (RPC #100000)/, 139/open/tcp//netbios-ssn//Samba smbd 3.X - 4.X (workgroup: WORKGROUP)/, 445/open/tcp//netbios-ssn//Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)/, 2049/open/tcp//nfs_acl//2-3 (RPC #100227)/, 42593/open/tcp//mountd//1-3 (RPC #100005)/, 46691/open/tcp//nlockmgr//1-4 (RPC #100021)/, 57987/open/tcp//mountd//1-3 (RPC #100005)/, 60253/open/tcp//mountd//1-3 (RPC #100005)/
+# Nmap done at Thu Oct  7 13:33:27 2021 -- 1 IP address (1 host up) scanned in 17.34 seconds
