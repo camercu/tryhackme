@@ -146,6 +146,9 @@ Looking at hashcat example hashes (https://hashcat.net/wiki/doku.php?id=example_
 
 ```sh
 ❯ hashcat -O -a0 -w3 --quiet -m 3200 '$2y$10$0veO/JSFh4389Lluc4Xya.dfy2MF.bZhz0jVMw.V.d3p12kBtZutm' /mnt/vm-share/rockyou.txt
-
+$2y$10$0veO/JSFh4389Lluc4Xya.dfy2MF.bZhz0jVMw.V.d3p12kBtZutm:spiderman123
+# this took over 25 mins to crack on my kali VM
 ```
+
+So jonah's password is `spiderman123`!
 
