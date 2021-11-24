@@ -16,3 +16,6 @@
 # no vpn keys
 *.ovpn
 
+# misc
+*.pdf
+hydra.restore
