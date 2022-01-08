@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.92 scan initiated Wed Dec 29 15:41:50 2021 as: nmap -vvv -p 22,111 -n -Pn -sV -sC -oA tcp-all 10.10.186.220 -->
+<nmaprun scanner="nmap" args="nmap -vvv -p 22,111 -n -Pn -sV -sC -oA tcp-all 10.10.186.220" start="1640810510" startstr="Wed Dec 29 15:41:50 2021" version="7.92" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="2" services="22,111"/>
+<verbose level="3"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1640810511"/>
+<taskend task="NSE" time="1640810511"/>
+<taskbegin task="NSE" time="1640810511"/>
+<taskend task="NSE" time="1640810511"/>
+<taskbegin task="NSE" time="1640810511"/>
+<taskend task="NSE" time="1640810511"/>
+<taskbegin task="SYN Stealth Scan" time="1640810511"/>
+<taskend task="SYN Stealth Scan" time="1640810513" extrainfo="2 total ports"/>
+<taskbegin task="Service scan" time="1640810513"/>
+<taskend task="Service scan" time="1640810519" extrainfo="2 services on 1 host"/>
+<taskbegin task="NSE" time="1640810519"/>
+<taskend task="NSE" time="1640810524"/>
+<taskbegin task="NSE" time="1640810524"/>
+<taskend task="NSE" time="1640810525"/>
+<taskbegin task="NSE" time="1640810525"/>
+<taskend task="NSE" time="1640810525"/>
+<host starttime="1640810511" endtime="1640810525"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.10.186.220" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="61"/><service name="ssh" product="OpenSSH" version="7.6p1 Ubuntu 4ubuntu0.3" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:7.6p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  2048 e2:35:e1:4f:4e:87:45:9e:5f:2c:97:e0:da:a9:df:d5 (RSA)&#xa;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTRQx4ZmXMByEs6dg4VTz+UtM9X9Ljxt6SU3oceqRUlV+ohx56xdD0ZPbvD0IcYwUrrqcruMG0xxgRxWuzV+FQAJVQe76ED966+lwrwAnUsVFQ5apw3N+WKnD53eldUZRq7/2nGQQizrefY7UjAGX/EZonSVOWZyhVyONu2VBBwg0B0yA3UBZV+yg+jGsrZ9ETEmfNbQRkbodEAwoZrGQ87UEdTkfj+5TGmfzqgukmBvvVV7KoXgSQIZNkqRmkAVKKXeEfydnOR37KMglBUXIR/50jkIswxWbNk2OtS6fz6UiPeEY39f4f0gwLx/HwUyel9yzH4dkDb+LBS6X/X9b9&#xa;  256 b2:fd:9b:75:1c:9e:80:19:5d:13:4e:8d:a0:83:7b:f9 (ECDSA)&#xa;ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAqCgW5Mlx2VpC61acc0G4VMZUAauQDoK5xIzdHzdDLPXt0GqsoIw1fuwTSSzSy8RFmGU5PNHiWn0egoUwlXdc4=&#xa;  256 75:20:0b:43:14:a9:8a:49:1a:d9:29:33:e1:b9:1a:b6 (ED25519)&#xa;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZ/jrfDX1aK1I0A/sLRVb2qoCF9xHWbVW+gBCV8dSmg"><table>
+<elem key="bits">2048</elem>
+<elem key="fingerprint">e235e14f4e87459e5f2c97e0daa9dfd5</elem>
+<elem key="type">ssh-rsa</elem>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABAQDTRQx4ZmXMByEs6dg4VTz+UtM9X9Ljxt6SU3oceqRUlV+ohx56xdD0ZPbvD0IcYwUrrqcruMG0xxgRxWuzV+FQAJVQe76ED966+lwrwAnUsVFQ5apw3N+WKnD53eldUZRq7/2nGQQizrefY7UjAGX/EZonSVOWZyhVyONu2VBBwg0B0yA3UBZV+yg+jGsrZ9ETEmfNbQRkbodEAwoZrGQ87UEdTkfj+5TGmfzqgukmBvvVV7KoXgSQIZNkqRmkAVKKXeEfydnOR37KMglBUXIR/50jkIswxWbNk2OtS6fz6UiPeEY39f4f0gwLx/HwUyel9yzH4dkDb+LBS6X/X9b9</elem>
+</table>
+<table>
+<elem key="bits">256</elem>
+<elem key="fingerprint">b2fd9b751c9e80195d134e8da0837bf9</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAqCgW5Mlx2VpC61acc0G4VMZUAauQDoK5xIzdHzdDLPXt0GqsoIw1fuwTSSzSy8RFmGU5PNHiWn0egoUwlXdc4=</elem>
+</table>
+<table>
+<elem key="bits">256</elem>
+<elem key="fingerprint">75200b4314a98a491ad92933e1b91ab6</elem>
+<elem key="type">ssh-ed25519</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIFZ/jrfDX1aK1I0A/sLRVb2qoCF9xHWbVW+gBCV8dSmg</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="61"/><service name="rpcbind" version="2-4" extrainfo="RPC #100000" method="probed" conf="10"/><script id="rpcinfo" output="&#xa;  program version    port/proto  service&#xa;  100000  2,3,4        111/tcp   rpcbind&#xa;  100000  2,3,4        111/udp   rpcbind&#xa;  100000  3,4          111/tcp6  rpcbind&#xa;  100000  3,4          111/udp6  rpcbind&#xa;"><table key="100000">
+<table key="udp">
+<table key="version">
+<elem>2</elem>
+<elem>3</elem>
+<elem>4</elem>
+</table>
+<elem key="addr">0.0.0.0</elem>
+<elem key="port">111</elem>
+<elem key="owner">superuser</elem>
+</table>
+<table key="udp6">
+<table key="version">
+<elem>3</elem>
+<elem>4</elem>
+</table>
+<elem key="addr">::</elem>
+<elem key="port">111</elem>
+<elem key="owner">superuser</elem>
+</table>
+<table key="tcp6">
+<table key="version">
+<elem>3</elem>
+<elem>4</elem>
+</table>
+<elem key="addr">::</elem>
+<elem key="port">111</elem>
+<elem key="owner">superuser</elem>
+</table>
+<table key="tcp">
+<table key="version">
+<elem>2</elem>
+<elem>3</elem>
+<elem>4</elem>
+</table>
+<elem key="addr">0.0.0.0</elem>
+<elem key="port">111</elem>
+<elem key="owner">superuser</elem>
+</table>
+<table key="local">
+<table key="version">
+<elem>3</elem>
+<elem>4</elem>
+</table>
+<elem key="addr">/run/rpcbind.sock</elem>
+<elem key="owner">superuser</elem>
+</table>
+</table>
+</script></port>
+</ports>
+<times srtt="147671" rttvar="110863" to="591123"/>
+</host>
+<taskbegin task="NSE" time="1640810525"/>
+<taskend task="NSE" time="1640810525"/>
+<taskbegin task="NSE" time="1640810525"/>
+<taskend task="NSE" time="1640810525"/>
+<taskbegin task="NSE" time="1640810525"/>
+<taskend task="NSE" time="1640810525"/>
+<runstats><finished time="1640810525" timestr="Wed Dec 29 15:42:05 2021" summary="Nmap done at Wed Dec 29 15:42:05 2021; 1 IP address (1 host up) scanned in 14.62 seconds" elapsed="14.62" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
